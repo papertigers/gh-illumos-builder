@@ -52,17 +52,10 @@ async function run() {
     let ova = imgName + ".ova";
     core.info("Export " + ova);
     await vboxmanage(vmName, "export", "--output " + ova);
-    await exec.exec("sudo chmod 666 " + ova);
-
-    // change to illumos.org
-    let surl = "http://lightsandshapes.com/sercons";
-    core.info("Downloading sercons: " + surl);
-    let sercons = await tc.downloadTool(surl);
-    core.info("Downloaded file: " + sercons);
-    await io.mv(sercons, "./sercons");
+    await exec.exec("sudo chmod", ["666", ova]);
 
     core.info("Compress " + vdi);
-    await exec.exec("7z a " + imgName + ".7z" + " sercons " + ova);
+    await exec.exec("7z", ["a", imgName + ".7z", ova]);
 
   } catch (error) {
     core.setFailed(error.message);
