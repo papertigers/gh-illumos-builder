@@ -19,6 +19,9 @@ async function run() {
   try {
     let sshport = 2222;
 
+    core.info("Install qemu");
+    await exec.exec("brew install qemu");
+
     let imgName = "omnios-r151036";
     // change to illumos.org
     let url = "http://lightsandshapes.com/" + imgName + ".raw.xz";
