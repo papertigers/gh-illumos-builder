@@ -22,7 +22,7 @@ async function run() {
     core.info("Install qemu");
     await exec.exec("brew install qemu");
 
-    let imgName = "omnios-r151036";
+    let imgName = "omnios-r151038";
     // change to illumos.org
     let url = "http://lightsandshapes.com/" + imgName + ".raw.xz";
     core.info("Downloading image: " + url);
