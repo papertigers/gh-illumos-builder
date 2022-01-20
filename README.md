@@ -11,3 +11,6 @@ This image is based on an OmniOS build that contains a modified version of the
 illumos metadata-agent that supports VirtualBox. The actual workflow action
 will be responsible for seeding the VM with a cpio disk image that sets up
 things like nodename, networking, and ssh keys.
+
+In progress:
+- r38 stable
