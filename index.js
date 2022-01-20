@@ -39,9 +39,9 @@ async function run() {
     core.info("Create VM");
     await exec.exec("sudo vboxmanage  createvm  --name " + vmName + " --ostype Solaris_64 --default --basefolder omnios --register");
 
-    await vboxmanage(vmName, "storagectl", " --name SATA --add sata  --controller IntelAHCI ")
+    await vboxmanage(vmName, "storagectl", " --name NVME --add pcie --controller NVMe ")
 
-    await vboxmanage(vmName, "storageattach", " --storagectl SATA --port 0  --device 0  --type hdd --medium " + vdi);
+    await vboxmanage(vmName, "storageattach", " --storagectl NVME --port 0  --device 0  --type hdd --medium " + vdi);
 
     await vboxmanage(vmName, "modifyvm ", " --vrde on  --vrdeport 33389");
 
