@@ -37,7 +37,7 @@ async function run() {
 
     let vmName = "omnios";
     core.info("Create VM");
-    await exec.exec("sudo vboxmanage  createvm  --name " + vmName + " --ostype Solaris_64 --default --basefolder omnios --register");
+    await exec.exec("sudo vboxmanage  createvm  --name " + vmName + " --ostype Solaris11_64 --default --basefolder omnios --register");
 
     await vboxmanage(vmName, "storagectl", " --name SATA --add sata  --controller IntelAHCI ")
 
