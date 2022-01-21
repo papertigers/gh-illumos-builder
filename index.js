@@ -39,7 +39,8 @@ async function run() {
     core.info("Create VM");
     await exec.exec("sudo vboxmanage  createvm  --name " + vmName + " --ostype Solaris11_64 --default --basefolder omnios --register");
 
-    await vboxmanage(vmName, "storagectl", " --name SATA --add sata  --controller IntelAHCI ")
+    // XXX already exists when using Solaris11_64 ?
+    //await vboxmanage(vmName, "storagectl", " --name SATA --add sata  --controller IntelAHCI ")
 
     await vboxmanage(vmName, "storageattach", " --storagectl SATA --port 0  --device 0  --type hdd --medium " + vdi);
 
